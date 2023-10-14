@@ -1,14 +1,18 @@
 #include "main.h"
+
 /**
- * printf_unsigned - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * printf_unsigned - print integer
+ *
+ * @args: arguments to print
+ *
+ * Return: number of character printed
  */
+
 int printf_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
 	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
+	int  j = 1;
 
 	n = n / 10;
 	num = n;
@@ -19,7 +23,7 @@ int printf_unsigned(va_list args)
 		num = -num;
 		n = -n;
 		last = -last;
-		i++;
+		j++;
 	}
 	if (num > 0)
 	{
@@ -35,10 +39,10 @@ int printf_unsigned(va_list args)
 			_putchar(digit + '0');
 			num = num - (digit * exp);
 			exp = exp / 10;
-			i++;
+			j++;
 		}
 	}
 	_putchar(last + '0');
 
-	return (i);
+	return (j);
 }
