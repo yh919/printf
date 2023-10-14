@@ -9,7 +9,6 @@ int printf_int(va_list args)
 {
     int n = va_arg(args, int);
     int last = n % 10, exp = 1;
-    int i = 1;
 
     num = n;
 
