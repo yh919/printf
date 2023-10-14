@@ -1,37 +1,69 @@
-#include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
+
+int _putchar(char c);
 
 /**
- * _printf - Receives the main string and all the necessary parameters to
- * print a formated string
- * @format: A string containing all the desired characters
- * Return: A total count of the characters printed
+ * _printf - Custom printf function
+ * @format: The format string
+ * @...: Additional arguments based on the format
+ * Return: The number of characters printed
  */
 int _printf(const char *format, ...)
 {
-	int printed_chars;
-	conver_t f_list[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{"d", print_integer},
-		{"i", print_integer},
-		{"b", print_binary},
-		{"r", print_reversed},
-		{"R", rot13},
-		{"u", unsigned_integer},
-		{"o", print_octal},
-		{"x", print_hex},
-		{"X", print_heX},
-		{NULL, NULL}
-	};
-	va_list arg_list;
+    int count = 0;
+    va_list args;
+    int i = 0;
 
-	if (format == NULL)
-		return (-1);
+    va_start(args, format);
 
-	va_start(arg_list, format);
-	/*Calling parser function*/
-	printed_chars = parser(format, f_list, arg_list);
-	va_end(arg_list);
-	return (printed_chars);
+    while (format[i])
+    {
+        if (format[i] != '%')
+        {
+            _putchar(format[i]);
+            count++;
+        }
+        else
+        {
+            i++; // Move past '%'
+            if (format[i] == 'c')
+            {
+                char c = va_arg(args, int);
+                _putchar(c);
+                count++;
+            }
+            else if (format[i] == 's')
+            {
+                char *str = va_arg(args, char *);
+                if (str == NULL)
+                    str = "(null)";
+                while (*str)
+                {
+                    _putchar(*str);
+                    count++;
+                    str++;
+                }
+            }
+            else if (format[i] == '%')
+            {
+                _putchar('%');
+                count++;
+            }
+        }
+        i++; // Move to the next character in the format string
+    }
+
+    va_end(args);
+    return count;
+}
+
+/**
+ * _putchar - Writes a character to stdout
+ * @c: The character to write
+ * Return: 1 on success, -1 on error
+ */
+int _putchar(char c)
+{
+    return write(1, &c, 1);
 }
