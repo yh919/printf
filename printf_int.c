@@ -7,9 +7,19 @@
  */
 int printf_int(va_list args)
 {
-    int n = va_arg(args, int);
-    int last = n % 10, exp = 1;
+    int num, last, digit, exp = 1;
     int i = 0;
+
+    if ((num = va_arg(args, int)) < 0)
+    {
+        _putchar('-');
+        last = -num;
+        i++;
+    }
+    else
+    {
+        last = num;
+    }
 
     if (last < 0)
     {
