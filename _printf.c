@@ -5,7 +5,7 @@
  * @format: identifier to look for.
  * Return: the length of the string.
  */
-int _printf(const char * const format, ...)
+int _printf(const char * format, ...)
 {
 	/* Declare printf_37 */
 int printf_37(va_list val);
@@ -19,10 +19,10 @@ convert_match m[] = {
     {"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
     {"%S", printf_exclusive_string}, {"%p", printf_pointer}
 };
-	};
 
 	va_list args;
-	int i = 0, j, len = 0;
+    int len = 0;
+    int i = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
