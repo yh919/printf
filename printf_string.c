@@ -7,15 +7,23 @@
  */
 int printf_string(va_list val)
 {
-	char *s = va_arg(val, char *);
+    char *s;
+    int len;  /* Move 'len' outside the 'if' statement */
+    int i;
 
-	if (s == NULL)
-		s = "(null)";
-
-	int len = _strlen(s);
-
-	for (int i = 0; i < len; i++)
-		_putchar(s[i]);
-
-	return len;
+    s = va_arg(val, char *);
+    len = _strlen(s);  /* Move 'len' outside the 'if' statement */
+    if (s == NULL)
+    {
+        s = "(null)";
+        for (i = 0; i < len; i++)
+            _putchar(s[i]);
+        return len;
+    }
+    else
+    {
+        for (i = 0; i < len; i++)
+            _putchar(s[i]);
+        return len;
+    }
 }

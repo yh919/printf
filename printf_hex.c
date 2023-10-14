@@ -18,6 +18,7 @@ int printf_hex(va_list val)
 
 	char hexDigits[] = "0123456789abcdef";
 
+
 	while (num > 0)
 	{
 		int digit = num % 16;

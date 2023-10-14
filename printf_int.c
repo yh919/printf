@@ -5,17 +5,25 @@
  * @n: the number to print
  * Return: the number of characters printed
  */
-int print_number(int n)
+int printf_int(va_list args)
 {
-	int i = 0;
-	int exp = 1;
+    int n = va_arg(args, int);
+    int num, last, digit, exp = 1;
+    int i = 1;
+    int i;  /* Declare 'i' at the beginning */
 
-	if (n < 0)
-	{
-		_putchar('-');
-		i++;
-		n = -n;
-	}
+    n = n / 10;
+    num = n;
+    last = n % 10;
+
+    if (last < 0)
+    {
+        _putchar('-');
+        num = -num;
+        n = -n;
+        last = -last;
+        i++;
+    }
 
 	int num = n;
 	while (num / 10 != 0)

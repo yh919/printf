@@ -23,6 +23,7 @@ int printf_hex_aux(unsigned long int num)
 	}
 
 	char hexDigits[] = "0123456789abcdef";
+
 	temp = num;
 	while (counter > 0)
 	{
