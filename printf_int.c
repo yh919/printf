@@ -8,8 +8,10 @@
 int printf_int(va_list args)
 {
     int n = va_arg(args, int);
-    int num, last, digit, exp = 1;
-    int i;  /* Declare 'i' at the beginning */
+    int last = n % 10;
+    int digit, exp = 1;
+    int i = 1;
+    int num = n;
 
     n = n / 10;
     num = n;

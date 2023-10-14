@@ -18,8 +18,8 @@ convert_match m[] = {
     {"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
     {"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
     {"%S", printf_exclusive_string}, {"%p", printf_pointer}
+	{NULL, NULL}
 };
-		{NULL, NULL}
 	};
 
 	va_list args;
@@ -44,7 +44,7 @@ convert_match m[] = {
 				}
 				j++;
 			}
-			if (m[j].id == NULL)  // If no matching specifier is found, print the '%'
+			if (m[j].id == NULL)
 			{
 				_putchar('%');
 				len++;
