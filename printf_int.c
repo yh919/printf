@@ -7,14 +7,12 @@
  */
 int printf_int(va_list args)
 {
-    int n = va_arg(args, int);
-    int last = n % 10;
-    int digit, exp = 1;
+      int n = va_arg(args, int);
+    int num, last = n % 10, digit, exp = 1;
     int i = 1;
-    int num = n;
 
-    n = n / 10;
     num = n;
+    n = n / 10;
     last = n % 10;
 
     if (last < 0)
