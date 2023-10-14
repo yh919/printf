@@ -9,8 +9,7 @@ int main(void)
     unsigned int ui;
     void *addr;
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
+    int _printf("Let's try to printf a simple sentence.\n");
 
     // Test other conversion specifiers and cases here...
 
