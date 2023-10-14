@@ -5,7 +5,7 @@
  * @format: identifier to look for.
  * Return: the length of the string.
  */
-int _printf(const char * format, ...)
+int _printf(const char *format, ...)
 {
 	/* Declare printf_37 */
 int printf_37(va_list val);
