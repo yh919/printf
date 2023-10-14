@@ -3,32 +3,31 @@
 /**
  * printf_bin - prints a binary number.
  * @val: arguments.
- * Return: 1.
+ * Return: Number of characters printed.
  */
 int printf_bin(va_list val)
 {
-	int flag = 0;
-	int cont = 0;
-	int i, a = 1, b;
 	unsigned int num = va_arg(val, unsigned int);
-	unsigned int p;
+	int count = 0;
+	int i;
+	int leading_zero = 1;  // Flag to skip leading zeros
 
-	for (i = 0; i < 32; i++)
+	for (i = 31; i >= 0; i--)
 	{
-		p = ((a << (31 - i)) & num);
-		if (p >> (31 - i))
-			flag = 1;
-		if (flag)
+		int bit = (num >> i) & 1;
+		if (bit || !leading_zero)
 		{
-			b = p >> (31 - i);
-			_putchar(b + 48);
-			cont++;
+			_putchar('0' + bit);
+			count++;
+			leading_zero = 0;
 		}
 	}
-	if (cont == 0)
+
+	if (count == 0)
 	{
-		cont++;
 		_putchar('0');
+		count++;
 	}
-	return (cont);
+
+	return count;
 }

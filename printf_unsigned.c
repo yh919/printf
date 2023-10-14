@@ -1,44 +1,26 @@
 #include "main.h"
+
 /**
- * printf_unsigned - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * printf_unsigned - Print an unsigned integer.
+ * @args: Argument to print.
+ * Return: Number of characters printed.
  */
 int printf_unsigned(va_list args)
 {
 	unsigned int n = va_arg(args, unsigned int);
-	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
+	int digit, exp = 1, i = 0;
 
-	n = n / 10;
-	num = n;
+	while (exp <= n / 10)
+		exp *= 10;
 
-	if (last < 0)
+	while (exp > 0)
 	{
-		_putchar('-');
-		num = -num;
-		n = -n;
-		last = -last;
+		digit = n / exp;
+		_putchar(digit + '0');
+		n %= exp;
+		exp /= 10;
 		i++;
 	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
-		}
-	}
-	_putchar(last + '0');
 
-	return (i);
+	return i;
 }

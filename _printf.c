@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * _printf - is a function that selects the correct function to print.
  * @format: identifier to look for.
@@ -12,7 +13,8 @@ int _printf(const char * const format, ...)
 		{"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
 		{"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
 		{"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
-		{"%S", printf_exclusive_string}, {"%p", printf_pointer}
+		{"%S", printf_exclusive_string}, {"%p", printf_pointer},
+		{NULL, NULL}  // Add a sentinel entry to mark the end of the array
 	};
 
 	va_list args;
@@ -22,22 +24,32 @@ int _printf(const char * const format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-Here:
 	while (format[i] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+		if (format[i] == '%')
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			i++;
+			j = 0;
+			while (m[j].id != NULL)
 			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
+				if (m[j].id[0] == format[i])
+				{
+					len += m[j].f(args);
+					break;
+				}
+				j++;
 			}
-			j--;
+			if (m[j].id == NULL)  // If no matching specifier is found, print the '%'
+			{
+				_putchar('%');
+				len++;
+			}
 		}
-		_putchar(format[i]);
-		len++;
+		else
+		{
+			_putchar(format[i]);
+			len++;
+		}
 		i++;
 	}
 	va_end(args);

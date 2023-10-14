@@ -1,90 +1,58 @@
 #include "main.h"
+
 /**
- * printf_int - prints integer
- * @args: argument to print
- * Return: number of characters printed
+ * print_number - prints a number (integer or decimal)
+ * @n: the number to print
+ * Return: the number of characters printed
  */
-int printf_int(va_list args)
+int print_number(int n)
 {
-	int n = va_arg(args, int);
-	int num, last = n % 10, digit, exp = 1;
-	int  i = 1;
+	int i = 0;
+	int exp = 1;
 
-	n = n / 10;
-	num = n;
-
-	if (last < 0)
+	if (n < 0)
 	{
 		_putchar('-');
-		num = -num;
+		i++;
 		n = -n;
-		last = -last;
+	}
+
+	int num = n;
+	while (num / 10 != 0)
+	{
+		exp *= 10;
+		num /= 10;
+	}
+
+	num = n;
+	while (exp > 0)
+	{
+		int digit = num / exp;
+		_putchar(digit + '0');
+		num -= digit * exp;
+		exp /= 10;
 		i++;
 	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
-		}
-	}
-	_putchar(last + '0');
 
-	return (i);
+	return i;
 }
 
 /**
- * printf_dec - prints decimal
+ * printf_int - prints an integer
  * @args: argument to print
- * Return: number of characters printed
+ * Return: the number of characters printed
  */
+int printf_int(va_list args)
+{
+	return print_number(va_arg(args, int));
+}
 
+/**
+ * printf_dec - prints a decimal
+ * @args: argument to print
+ * Return: the number of characters printed
+ */
 int printf_dec(va_list args)
 {
-	int n = va_arg(args, int);
-	int num, last = n % 10, digit;
-	int  i = 1;
-	int exp = 1;
-
-	n = n / 10;
-	num = n;
-
-	if (last < 0)
-	{
-		_putchar('-');
-		num = -num;
-		n = -n;
-		last = -last;
-		i++;
-	}
-	if (num > 0)
-	{
-		while (num / 10 != 0)
-		{
-			exp = exp * 10;
-			num = num / 10;
-		}
-		num = n;
-		while (exp > 0)
-		{
-			digit = num / exp;
-			_putchar(digit + '0');
-			num = num - (digit * exp);
-			exp = exp / 10;
-			i++;
-		}
-	}
-	_putchar(last + '0');
-
-	return (i);
+	return print_number(va_arg(args, int));
 }
