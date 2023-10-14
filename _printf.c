@@ -1,6 +1,7 @@
 #include <stdarg.h>
 #include <unistd.h>
-#include "main.h"
+
+int _putchar(char c);
 
 /**
  * _printf - Custom printf function
@@ -15,27 +16,44 @@ int _printf(const char *format, ...)
     int i = 0;
 
     va_start(args, format);
-    
+
     while (format[i])
     {
         if (format[i] != '%')
         {
-            count += _putchar(format[i]);
+            _putchar(format[i]);
+            count++;
         }
         else
         {
             i++; // Move past '%'
             if (format[i] == 'c')
-                count += print_char(va_arg(args, int));
+            {
+                char c = va_arg(args, int);
+                _putchar(c);
+                count++;
+            }
             else if (format[i] == 's')
-                count += print_str(va_arg(args, char *));
+            {
+                char *str = va_arg(args, char *);
+                if (str == NULL)
+                    str = "(null)";
+                while (*str)
+                {
+                    _putchar(*str);
+                    count++;
+                    str++;
+                }
+            }
             else if (format[i] == '%')
-                count += _putchar('%');
-            // Add more cases for other conversion specifiers here
+            {
+                _putchar('%');
+                count++;
+            }
         }
         i++; // Move to the next character in the format string
     }
-    
+
     va_end(args);
     return count;
 }
@@ -48,29 +66,4 @@ int _printf(const char *format, ...)
 int _putchar(char c)
 {
     return write(1, &c, 1);
-}
-
-/**
- * print_char - Print a character
- */
-int print_char(char c)
-{
-    return _putchar(c);
-}
-
-/**
- * print_str - Print a string
- */
-int print_str(char *str)
-{
-    int count = 0;
-    if (str == NULL)
-        str = "(null)";
-    
-    while (str[count])
-    {
-        _putchar(str[count]);
-        count++;
-    }
-    return count;
 }
