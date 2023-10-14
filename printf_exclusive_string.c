@@ -41,7 +41,7 @@ int _putchar_hex(char c)
 {
 	int len = 0;
 
-	// Print the hexadecimal representation of the character
+
 	char hexDigits[] = "0123456789ABCDEF";
 	_putchar(hexDigits[(c >> 4) & 0xF]);
 	_putchar(hexDigits[c & 0xF]);

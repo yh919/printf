@@ -10,7 +10,7 @@ int printf_bin(va_list val)
 	unsigned int num = va_arg(val, unsigned int);
 	int count = 0;
 	int i;
-	int leading_zero = 1;  // Flag to skip leading zeros
+	int leading_zero = 1; 
 
 	for (i = 31; i >= 0; i--)
 	{
