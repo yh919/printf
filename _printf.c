@@ -15,7 +15,7 @@ int printf_37(va_list val);
 
 /* Initialize the structure with an initializer list */
 
-/* convert_match m[] = {
+convert_match m[] = {
     {"%s", printf_string}, {"%c", printf_char},
     {"%%", printf_37},
     {"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
@@ -23,7 +23,7 @@ int printf_37(va_list val);
     {"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
     {"%S", printf_exclusive_string}, {"%p", printf_pointer}
 };
-*/
+
 
 	va_list args;
     int len = 0;

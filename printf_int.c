@@ -9,6 +9,7 @@ int printf_int(va_list args)
 {
     int num, last, digit, exp = 1;
     int i = 0;
+	int n = va_arg(args, int);
 
     if ((num = va_arg(args, int)) < 0)
     {
