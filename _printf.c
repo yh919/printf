@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 int printf_37(va_list val);
 
 /* Initialize the structure with an initializer list */
-convert_match m[] = {
+
+/* convert_match m[] = {
     {"%s", printf_string}, {"%c", printf_char},
     {"%%", printf_37},
     {"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
@@ -19,10 +20,12 @@ convert_match m[] = {
     {"%o", printf_oct}, {"%x", printf_hex}, {"%X", printf_HEX},
     {"%S", printf_exclusive_string}, {"%p", printf_pointer}
 };
+*/
 
 	va_list args;
     int len = 0;
     int i = 0;
+	int j = 0
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
