@@ -10,7 +10,7 @@ int printf_int(va_list args)
     int n = va_arg(args, int);
     int num = n;
     int last = n % 10, exp = 1;
-    int i = 0; 
+    int i = 0;
 
     if (last < 0)
     {
