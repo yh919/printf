@@ -8,9 +8,8 @@
 int printf_int(va_list args)
 {
     int n = va_arg(args, int);
+    int num = n;
     int last = n % 10, exp = 1;
-
-    num = n;
 
     if (last < 0)
     {
