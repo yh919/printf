@@ -6,7 +6,9 @@
  * Return: Number of characters printed.
  */
 int printf_hex_aux(unsigned long int num)
+
 {
+		char hexDigits[] = "0123456789abcdef";
 	int counter = 0;
 	unsigned long int temp = num;
 
@@ -22,7 +24,7 @@ int printf_hex_aux(unsigned long int num)
 		temp /= 16;
 	}
 
-	char hexDigits[] = "0123456789abcdef";
+
 
 	temp = num;
 	while (counter > 0)

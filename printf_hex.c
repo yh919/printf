@@ -7,6 +7,8 @@
  */
 int printf_hex(va_list val)
 {
+		char hexDigits[] = "0123456789abcdef";
+
 	unsigned int num = va_arg(val, unsigned int);
 	int count = 0;
 
@@ -16,7 +18,6 @@ int printf_hex(va_list val)
 		return 1;
 	}
 
-	char hexDigits[] = "0123456789abcdef";
 
 
 	while (num > 0)

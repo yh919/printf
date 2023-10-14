@@ -7,8 +7,8 @@
  */
 int printf_unsigned(va_list args)
 {
-    unsigned int n = va_arg(args, unsigned int);
-    int num, last, digit, exp = 1;
+     unsigned int n = va_arg(args, unsigned int);
+    unsigned int num, last, digit, exp = 1;
     int i = 1;
 	while (exp <= n / 10)
 		exp *= 10;
