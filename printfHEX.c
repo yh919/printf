@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int printf_HEX(void) {
+int printf_HEX(va_list args)
+{
     char hexDigits[] = "0123456789abcdef";
 
 unsigned int num = va_arg(args, unsigned int);
