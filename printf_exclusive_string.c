@@ -1,11 +1,13 @@
 #include "main.h"
 #include <stddef.h>
-
 /**
  * printf_exclusive_string - print exclusive string.
+ *
  * @val: argument.
+ *
  * Return: the length of the string.
  */
+
 int printf_exclusive_string(va_list val)
 {
     char *s;
@@ -43,9 +45,12 @@ int printf_exclusive_string(va_list val)
 
 /**
  * _putchar_hex - print a hexadecimal value for a character.
+ *
  * @c: the character to print as hexadecimal.
+ *
  * Return: the number of characters printed (always 2).
  */
+
 int _putchar_hex(char c)
 {
 	int len = 0;
