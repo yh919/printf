@@ -3,7 +3,9 @@
 
 /**
  * printf_bin - print a binary number.
+ *
  * @val: argument.
+ *
  * Return: Number of character printed.
  */
 
@@ -12,11 +14,12 @@ int printf_bin(va_list val)
 	unsigned int num = va_arg(val, unsigned int);
 	int count = 0;
 	int i;
-	int leading_zero = 1; 
+	int leading_zero = 1;
 
 	for (i = 31; i >= 0; i--)
 	{
 		int bit = (num >> i) & 1;
+
 		if (bit || !leading_zero)
 		{
 			_putchar('0' + bit);
@@ -31,5 +34,5 @@ int printf_bin(va_list val)
 		count++;
 	}
 
-	return count;
+	return (count);
 }
