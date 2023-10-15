@@ -1,10 +1,12 @@
 #include "main.h"
 #include <stddef.h>
+
 /**
- * printf_bin - prints a binary number.
- * @val: arguments.
- * Return: Number of characters printed.
+ * printf_bin - print a binary number.
+ * @val: argument.
+ * Return: Number of character printed.
  */
+
 int printf_bin(va_list val)
 {
 	unsigned int num = va_arg(val, unsigned int);
