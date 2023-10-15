@@ -7,7 +7,7 @@
  */
 int print_number(int n)
 {
-    int num, last, exp = 1;
+    int num, exp = 1;
     int i = 0;
 
     if ((num = n) < 0)
@@ -47,7 +47,7 @@ int print_number(int n)
  */
 int printf_int(va_list args)
 {
-    return print_number(va_arg(args, int);
+    return print_number(va_arg(args, int));
 }
 
 /**
