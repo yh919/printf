@@ -2,7 +2,9 @@
 #include <stddef.h>
 /**
  * printf_srev - Print a string in reverse order.
+ *
  * @args: Arguments containing the string to reverse.
+ *
  * Return: Number of characters printed.
  */
 int printf_srev(va_list args)
@@ -19,5 +21,5 @@ int printf_srev(va_list args)
 	for (i = j - 1; i >= 0; i--)
 		_putchar(s[i]);
 
-	return j;
+	return (j);
 }
