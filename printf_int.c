@@ -10,17 +10,15 @@ int print_number(int n)
     int num, exp = 1;
     int i = 0;
 
-    if ((num = n) < 0)
+    if (n < 0)
     {
-	int last;
         _putchar('-');
-        last = -num;
+        num = -n;
         i++;
     }
     else
     {
-	int last;
-        last = num;
+        num = n;
     }
 
     while (num / 10 != 0)
