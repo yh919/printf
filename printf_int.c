@@ -5,13 +5,12 @@
  * @n: the number to print
  * Return: the number of characters printed
  */
-int printf_int(va_list args)
+int print_number(int n)
 {
     int num, last, exp = 1;
     int i = 0;
-	int n = va_arg(args, int);
 
-    if ((num = va_arg(args, int)) < 0)
+    if ((num = n) < 0)
     {
         _putchar('-');
         last = -num;
@@ -22,33 +21,23 @@ int printf_int(va_list args)
         last = num;
     }
 
-    if (last < 0)
+    while (num / 10 != 0)
     {
-        _putchar('-');
-        num = -num;
-        n = -n;
-        last = -last;
+        exp *= 10;
+        num /= 10;
+    }
+
+    num = n;
+    while (exp > 0)
+    {
+        int digit = num / exp;
+        _putchar(digit + '0');
+        num -= digit * exp;
+        exp /= 10;
         i++;
     }
 
-	int num = n;
-	while (num / 10 != 0)
-	{
-		exp *= 10;
-		num /= 10;
-	}
-
-	num = n;
-	while (exp > 0)
-	{
-		int digit = num / exp;
-		_putchar(digit + '0');
-		num -= digit * exp;
-		exp /= 10;
-		i++;
-	}
-
-	return i;
+    return i;
 }
 
 /**
@@ -58,7 +47,7 @@ int printf_int(va_list args)
  */
 int printf_int(va_list args)
 {
-	return print_number(va_arg(args, int));
+    return print_number(va_arg(args, int);
 }
 
 /**
@@ -68,5 +57,5 @@ int printf_int(va_list args)
  */
 int printf_dec(va_list args)
 {
-	return print_number(va_arg(args, int));
+    return print_number(va_arg(args, int));
 }
