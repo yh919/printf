@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stddef.h>
 /**
  * printf_hex_aux - prints a hexadecimal number.
  * @num: the number to print in hexadecimal.

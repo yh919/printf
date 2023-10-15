@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stddef.h>
 /**
  * printf_pointer - prints a pointer in hexadecimal format.
  * @val: arguments.
