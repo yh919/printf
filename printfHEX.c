@@ -1,6 +1,6 @@
-#include "main.h"
 #include <stdio.h>
-#include <stdarg.h>
+#include "main.h"
+
 
 int printf_HEX(va_list args)
 {
