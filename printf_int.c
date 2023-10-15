@@ -8,7 +8,7 @@
 int print_number(int n)
 {
     int num, exp = 1;
-	int last
+	int last;
     int i = 0;
 
     if ((num = n) < 0)
