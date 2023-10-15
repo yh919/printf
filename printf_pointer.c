@@ -1,10 +1,12 @@
 #include "main.h"
 #include <stddef.h>
+
 /**
  * printf_pointer - prints a pointer in hexadecimal format.
  * @val: arguments.
  * Return: Number of characters printed.
  */
+
 int printf_pointer(va_list val)
 {
 	void *p = va_arg(val, void *);
@@ -17,7 +19,7 @@ int printf_pointer(va_list val)
 		for (i = 0; nil[i] != '\0'; i++)
 			_putchar(nil[i]);
 
-		return i;
+		return (i);
 	}
 	else
 	{
@@ -28,6 +30,6 @@ int printf_pointer(va_list val)
 		_putchar('0');
 		_putchar('x');
 
-		return count + 2;
+		return (count + 2);
 	}
 }
