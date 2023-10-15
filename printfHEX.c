@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-int printf_HEX(va_list args) {
+int printf_HEX(void) {
     char hexDigits[] = "0123456789abcdef";
 
-	unsigned int num = va_arg(val, unsigned int);
+unsigned int num = va_arg(args, unsigned int);
 	int count = 0;
 
 	if (num == 0)
@@ -24,5 +24,5 @@ int printf_HEX(va_list args) {
 		count++;
 	}
 
-	return count; // Replace with the actual count of characters printed.
+	return count;
 }
