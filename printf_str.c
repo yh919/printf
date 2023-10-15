@@ -1,8 +1,11 @@
 #include "main.h"
 #include <stddef.h>
+
 /**
  * _strlen - Returns the length of a string.
+ *
  * @s: Pointer to a string
+ *
  * Return: Length of the string.
  */
 int _strlen(char *s)
@@ -17,7 +20,9 @@ int _strlen(char *s)
 
 /**
  * _strlenc - Returns the length of a constant string.
+ *
  * @s: Pointer to a constant string
+ *
  * Return: Length of the string.
  */
 int _strlenc(const char *s)
