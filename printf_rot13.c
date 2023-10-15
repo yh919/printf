@@ -1,10 +1,14 @@
 #include "main.h"
 #include <stddef.h>
+
 /**
  * printf_rot13 - Print a ROT13 encoded string.
+ *
  * @args: Arguments containing the string to encode.
+ *
  * Return: Number of characters printed.
  */
+
 int printf_rot13(va_list args)
 {
 	int i, j, counter = 0;
@@ -37,5 +41,5 @@ int printf_rot13(va_list args)
 		}
 	}
 
-	return counter;
+	return (counter);
 }
