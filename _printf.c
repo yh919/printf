@@ -20,8 +20,7 @@ convert_match m[] = {
     {"%%", printf_37},
     {"%i", printf_int}, {"%d", printf_dec}, {"%r", printf_srev},
     {"%R", printf_rot13}, {"%b", printf_bin}, {"%u", printf_unsigned},
-    {"%o", printf_oct}, {"%x", printf_hex}, {"%x", printf_hex_aux},
-    {"%S", printf_exclusive_string}, {"%p", printf_pointer}
+    {"%o", printf_oct}, {"%x", printf_hex},{"%S", printf_exclusive_string}, {"%p", printf_pointer}
 };
 
 
