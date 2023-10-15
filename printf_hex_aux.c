@@ -36,5 +36,5 @@ int printf_hex_aux(unsigned long int num)
 		_putchar(hexDigits[(temp >> (4 * counter)) & 0xf]);
 	}
 
-	return counter;
+	return (counter);
 }
